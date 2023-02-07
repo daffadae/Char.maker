@@ -1,2 +1,2 @@
-# Drawer-maker
+# Char-maker
 Programeerimise projekt
