@@ -5,4 +5,4 @@ teeme koos "character maker"
 
 uus muudatus 
 
-hello marin
+hello marin hello
