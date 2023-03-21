@@ -9,7 +9,10 @@ running = True
 icon = pg.image.load('pics/icon.png')
 pg.display.set_icon(icon)
 
+black =(0, 0, 0)
 
+font = pg.font.Font('freesansbold.ttf', 32)
+text = font.render('Test text', True, black)
 def character():
     x = 0
     y = 0
@@ -18,6 +21,7 @@ def character():
 
 while running:
     window.fill((255, 255, 255))
+    window.blit(text)
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
@@ -25,3 +29,4 @@ while running:
     #    if event.type == pg.KEYDOWN:
     #        if event.key == pg.K_SPACE:
     pg.display.update()
+
