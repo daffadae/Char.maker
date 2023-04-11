@@ -1,12 +1,38 @@
 import pygame as pg
 import sys
 
+dialogue1 = []
+for x in range(3):
+    dialogue1.append(pg.image.load("pics/" + str(x) + ".jpg"))
+    x += 1
+
+def startGame():
+    pg.init()
+    window2 = pg.display.set_mode((800, 900))
+    pg.display.set_caption("Date Sim!")
+
+    while True:
+        for event in pg.event.get():
+            x = 0
+            for texts in range(3):
+                window2.blit(dialogue1[x], (0,0))
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    sys.exit()
+                elif event.type == pg.MOUSEBUTTONDOWN or event.type == pg.K_SPACE:
+                    x += 1
+
+
+
+        pg.display.update()
+
+
 pg.init()
 window = pg.display.set_mode((1280, 720))
 pg.display.set_caption("Date Sim!")
 main_font = pg.font.SysFont(None, 50)
 def switch():
-    pg.image.load_extended(dialogue1[0])
+    window.blit(dialogue1[0], (0,0))
 class Button():
     def __init__(self, image, x_pos, y_pos, text_input):
         self.image = image
@@ -45,11 +71,9 @@ while True:
             sys.exit()
         elif event.type == pg.MOUSEBUTTONDOWN:
             button.checkForInput(pg.mouse.get_pos())
-
+            startGame()
 
     button.update()
     button.changeColor(pg.mouse.get_pos())
 
     pg.display.update()
-
-    dialogue1 = pg.image.load(['pics/1.png','pics/2.png','pics/3.png'])
